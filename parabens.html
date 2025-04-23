@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script 
+        src="https://cdn.xtracky.com/scripts/utm-handler.js"
+        data-token="09b5f165-598d-4dcb-931f-45f6421bba64"
+        data-click-id-param="click_id">
+</script>
+  <meta charset="UTF-8">
+  <title>Parabéns! Você ganhou um Kit Bobie Good</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #fff;
+      font-family: 'Arial', sans-serif;
+      user-select: none;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: 800;
+      font-family: 'Arial Black', sans-serif;
+      background: linear-gradient(90deg, #FE2B54, #00F0FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: brilho 3s ease-in-out infinite alternate;
+    }
+    @keyframes brilho {
+      0% { background-position: 0%; }
+      100% { background-position: 100%; }
+    }
+    .botao-saldo {
+      background-color: #FE2B54;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .img-kit {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .titulo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #FE2B54;
+    }
+    .mensagem {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .continue-button {
+      background: linear-gradient(90deg, #FE2B54 0%, #FF416C 100%);
+      color: white;
+      font-weight: bold;
+      padding: 14px;
+      border-radius: 30px;
+      text-align: center;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .cronometro {
+      font-size: 14px;
+      margin-top: 20px;
+      color: #FE2B54;
+      font-weight: bold;
+    }
+    /* Popup */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .popup-content {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .popup-content h2 {
+      color: #FE2B54;
+      margin-bottom: 20px;
+    }
+    .popup-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .popup-content button {
+      background-color: #FE2B54;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-text">BobyGood</div>
+    <a href="#" class="botao-saldo">🎁 Kit Grátis</a>
+  </header>
+
+  <div class="container">
+    <img class="img-kit" src="https://http2.mlstatic.com/D_NQ_NP_957208-MLB83430442571_032025-O.webp" alt="Kit Bobie Good com canetas coloridas">
+
+    <div class="titulo">🎉 Parabéns! Você foi premiado!</div>
+
+    <div class="mensagem">
+      Você acaba de ganhar um <strong>Kit Completo Bobie Good</strong> – avaliado em <strong>mais de R$ 300</strong>, totalmente <strong>GRÁTIS</strong>! 😍<br><br>
+      Esse kit exclusivo contém:<br>
+      ✅ 2 livros originais para colorir Bobie Good<br>
+      ✅ +80 canetas coloridas ponta dupla<br>
+      ✅ Embalagem especial para presente<br><br>
+      🚚 <strong>O Kit será 100% gratuito, pague apenas a pequena taxa de R$19,90</strong> para receber o kit diretamente na sua casa!<br><br>
+      ⚠️ <strong>ATENÇÃO:</strong> Essa é uma recompensa <strong>limitada</strong> para usuários que completaram o quiz.<br>
+      Você tem <strong>apenas alguns minutos</strong> para resgatar antes que sua vaga expire!
+    </div>
+
+    <a href="https://go.disruptybr.com.br/mpphocy3z1" class="continue-button">💖 QUERO MEU KIT AGORA</a>
+
+    <div class="cronometro" id="timer">⏳ Tempo restante: 10:00</div>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>🎉 Parabéns!</h2>
+      <p>Você ganhou um Kit Completo Bobie Good!<br>Resgate agora mesmo!</p>
+      <button onclick="fecharPopup()">OK</button>
+    </div>
+  </div>
+
+  <!-- Áudio -->
+  <audio id="audio" autoplay>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/06/audio_3d7e0bc977.mp3?filename=happy-unicorn-141373.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    function fecharPopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    // Cronômetro de 10 minutos
+    let tempo = 600;
+    const timer = document.getElementById('timer');
+    setInterval(() => {
+      if (tempo > 0) {
+        tempo--;
+        const minutos = String(Math.floor(tempo / 60)).padStart(2, '0');
+        const segundos = String(tempo % 60).padStart(2, '0');
+        timer.innerText = `⏳ Tempo restante: ${minutos}:${segundos}`;
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

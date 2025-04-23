@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script 
+        src="https://cdn.xtracky.com/scripts/utm-handler.js"
+        data-token="09b5f165-598d-4dcb-931f-45f6421bba64"
+        data-click-id-param="click_id">
+</script>
+  <meta charset="UTF-8">
+  <title>Quiz BobyGood - Página 6</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #fff;
+      font-family: 'Arial', sans-serif;
+      user-select: none;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: 800;
+      font-family: 'Arial Black', sans-serif;
+      background: linear-gradient(90deg, #FE2B54, #00F0FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: brilho 3s ease-in-out infinite alternate;
+    }
+    @keyframes brilho {
+      0% { background-position: 0%; }
+      100% { background-position: 100%; }
+    }
+    .botao-saldo {
+      background-color: #FE2B54;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .img-kit {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .titulo {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .opcao {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f2f2f2;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+    .opcao:hover, .opcao.selecionada {
+      border-color: #FE2B54;
+      background: #fff0f4;
+    }
+    .opcao .emoji {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+    .continue-button {
+      background: linear-gradient(90deg, #FE2B54 0%, #FF416C 100%);
+      color: white;
+      font-weight: bold;
+      padding: 14px;
+      border-radius: 30px;
+      text-align: center;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .cronometro {
+      font-size: 14px;
+      margin-top: 20px;
+      color: #FE2B54;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-text">BobyGood</div>
+    <a href="#" class="botao-saldo">🎁 Kit Grátis</a>
+  </header>
+
+  <div class="container">
+    <img class="img-kit" src="https://http2.mlstatic.com/D_NQ_NP_957208-MLB83430442571_032025-O.webp" alt="Kit BobyGood com canetas coloridas">
+
+    <div class="titulo">Qual tipo de desenho você mais gosta de colorir com seu kit BobyGood?</div>
+
+    <div class="opcao" onclick="selecionar(this)"><span class="emoji">🐶</span> Animais fofos</div>
+    <div class="opcao" onclick="selecionar(this)"><span class="emoji">🌸</span> Flores e plantas</div>
+    <div class="opcao" onclick="selecionar(this)"><span class="emoji">🌈</span> Mandalas e padrões</div>
+    <div class="opcao" onclick="selecionar(this)"><span class="emoji">🦄</span> Personagens de fantasia</div>
+
+    <div class="continue-button" onclick="continuar()">Continuar</div>
+
+    <div class="cronometro" id="timer">⏳ Tempo restante: 10:00</div>
+  </div>
+
+  <script>
+    const opcoes = document.querySelectorAll('.opcao');
+    function selecionar(el) {
+      opcoes.forEach(o => o.classList.remove('selecionada'));
+      el.classList.add('selecionada');
+    }
+
+    function continuar() {
+      const selecionada = document.querySelector('.opcao.selecionada');
+      if (selecionada) {
+        window.location.href = "parabens.html";
+      } else {
+        alert("Selecione uma opção para continuar.");
+      }
+    }
+
+    // Cronômetro regressivo de 10 minutos
+    let tempo = 600;
+    const timerEl = document.getElementById('timer');
+    const intervalo = setInterval(() => {
+      const minutos = Math.floor(tempo / 60).toString().padStart(2, '0');
+      const segundos = (tempo % 60).toString().padStart(2, '0');
+      timerEl.textContent = `⏳ Tempo restante: ${minutos}:${segundos}`;
+      tempo--;
+
+      if (tempo < 0) {
+        clearInterval(intervalo);
+        alert("⏱️ O tempo acabou! Por favor, reinicie o quiz.");
+        window.location.href = "index.html";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

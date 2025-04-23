@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script 
+        src="https://cdn.xtracky.com/scripts/utm-handler.js"
+        data-token="09b5f165-598d-4dcb-931f-45f6421bba64"
+        data-click-id-param="click_id">
+</script>
+  <meta charset="UTF-8">
+  <title>BobyGood - Página 3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #fff;
+      font-family: 'Arial', sans-serif;
+      user-select: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: 800;
+      font-family: 'Arial Black', sans-serif;
+      background: linear-gradient(90deg, #FE2B54, #00F0FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: brilho 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes brilho {
+      0% { background-position: 0%; }
+      100% { background-position: 100%; }
+    }
+
+    .botao-saldo {
+      background-color: #FE2B54;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .titulo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .imagem-central {
+      margin: 20px 0;
+    }
+
+    .imagem-central img {
+      max-width: 100%;
+      width: 260px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .subtitulo {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .opcao {
+      display: flex;
+      align-items: center;
+      background: #f2f2f2;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .opcao:hover, .opcao.selected {
+      border-color: #FE2B54;
+      background-color: #ffe6ec;
+    }
+
+    .emoji {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .continue-button {
+      background: linear-gradient(90deg, #FE2B54 0%, #00F0FF 100%);
+      color: white;
+      font-weight: bold;
+      padding: 14px;
+      border-radius: 30px;
+      text-align: center;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .aviso {
+      font-size: 13px;
+      color: #000;
+      margin-top: 40px;
+    }
+
+    .aviso span {
+      text-decoration: underline;
+    }
+
+    .cronometro {
+      font-size: 16px;
+      color: #FE2B54;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-text">BobyGood</div>
+    <a href="#" class="botao-saldo">🎁 Kit Grátis</a>
+  </header>
+
+  <div class="container">
+    <div class="titulo">Qual dessas opções você mais gostaria de ganhar?</div>
+    <div class="cronometro" id="cronometro">Tempo restante: 10:00</div>
+
+    <div class="imagem-central">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_957208-MLB83430442571_032025-O.webp" alt="Kit BobyGood com canetas">
+    </div>
+
+    <div class="subtitulo">Escolha sua preferência:</div>
+
+    <div class="opcao" onclick="selecionar(this)">🖌️ Kit com 80 canetas</div>
+    <div class="opcao" onclick="selecionar(this)">📘 Kit com 4 caderninhos BobyGood</div>
+    <div class="opcao" onclick="selecionar(this)">🎁 Kit completo com tudo</div>
+    <div class="opcao" onclick="selecionar(this)">❌ Não quero nenhum</div>
+
+    <div class="continue-button" onclick="window.location.href='3.html'">Continuar</div>
+
+    <div class="aviso">Ao participar, você concorda com nossos <span>Termos</span> e <span>Condições</span>.</div>
+  </div>
+
+  <script>
+    function selecionar(element) {
+      const opcoes = document.querySelectorAll('.opcao');
+      opcoes.forEach(op => op.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    let tempo = 600;
+    const cronometro = document.getElementById("cronometro");
+
+    function atualizarCronometro() {
+      const minutos = Math.floor(tempo / 60);
+      const segundos = tempo % 60;
+      cronometro.textContent = `Tempo restante: ${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+      if (tempo <= 0) {
+        alert("Tempo esgotado! A pesquisa foi finalizada.");
+        window.location.href = 'tempo-expirado.html';
+      }
+      tempo--;
+    }
+
+    setInterval(atualizarCronometro, 1000);
+  </script>
+
+</body>
+</html>

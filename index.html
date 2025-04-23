@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script 
+        src="https://cdn.xtracky.com/scripts/utm-handler.js"
+        data-token="09b5f165-598d-4dcb-931f-45f6421bba64"
+        data-click-id-param="click_id">
+</script>
+  <meta charset="UTF-8">
+  <title>Quiz BobyGood - Página 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #fff;
+      font-family: 'Arial', sans-serif;
+      user-select: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: 800;
+      font-family: 'Arial Black', sans-serif;
+      background: linear-gradient(90deg, #FE2B54, #00F0FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: brilho 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes brilho {
+      0% { background-position: 0%; }
+      100% { background-position: 100%; }
+    }
+
+    .botao-saldo {
+      background-color: #FE2B54;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .titulo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .imagens-boby {
+      margin: 20px 0;
+    }
+
+    .imagens-boby img {
+      width: 100px;
+      margin: 0 5px;
+      border-radius: 10px;
+    }
+
+    .subtitulo {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .opcao {
+      display: flex;
+      align-items: center;
+      background: #f2f2f2;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .opcao:hover, .opcao.selected {
+      border-color: #FE2B54;
+      background-color: #ffe6ec;
+    }
+
+    .emoji {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .continue-button {
+      background: linear-gradient(90deg, #FE2B54 0%, #00F0FF 100%);
+      color: white;
+      font-weight: bold;
+      padding: 14px;
+      border-radius: 30px;
+      text-align: center;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .aviso {
+      font-size: 13px;
+      color: #000;
+      margin-top: 40px;
+    }
+
+    .aviso span {
+      text-decoration: underline;
+    }
+
+    .cronometro {
+      font-size: 16px;
+      color: #FE2B54;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-text">BobyGood</div>
+    <a href="#" class="botao-saldo">🎁 Kit Grátis</a>
+  </header>
+
+  <div class="container">
+    <div class="titulo">Você já ouviu falar dos caderninhos BobyGood?</div>
+    <div class="cronometro" id="cronometro">Tempo restante: 10:00</div>
+
+    <div class="imagens-boby">
+      <img src="https://tse1.mm.bing.net/th?id=OIP.vBPK_QoIwBTFSNDh0QZXswHaHa&pid=Api" alt="BobyGood 1">
+      <img src="https://tse2.mm.bing.net/th?id=OIP.WsJnqN84ob3OLwFnwWHkLwHaHa&pid=Api" alt="BobyGood 2">
+      <img src="https://tse3.mm.bing.net/th?id=OIP.W-HqB59y_p_bR5SrzZ61BQHaHa&pid=Api" alt="BobyGood 3">
+    </div>
+
+    <div class="subtitulo">Selecione uma opção abaixo:</div>
+
+    <div class="opcao" onclick="selecionar(this)">😍 Sim, e amo pintar</div>
+    <div class="opcao" onclick="selecionar(this)">😊 Já vi, mas nunca tive</div>
+    <div class="opcao" onclick="selecionar(this)">😐 Não conhecia</div>
+    <div class="opcao" onclick="selecionar(this)">😒 Isso não é pra mim</div>
+
+    <div class="continue-button" onclick="window.location.href='2.html'">Continuar</div>
+
+    <div class="aviso">Ao participar, você concorda com nossos <span>Termos</span> e <span>Condições</span>.</div>
+  </div>
+
+  <script>
+    function selecionar(element) {
+      const opcoes = document.querySelectorAll('.opcao');
+      opcoes.forEach(op => op.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    let tempo = 600; // 10 minutos
+    const cronometro = document.getElementById("cronometro");
+
+    function atualizarCronometro() {
+      const minutos = Math.floor(tempo / 60);
+      const segundos = tempo % 60;
+      cronometro.textContent = `Tempo restante: ${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+      if (tempo <= 0) {
+        alert("Tempo esgotado! A pesquisa foi finalizada.");
+        window.location.href = 'tempo-expirado.html';
+      }
+      tempo--;
+    }
+
+    setInterval(atualizarCronometro, 1000);
+  </script>
+
+</body>
+</html>
